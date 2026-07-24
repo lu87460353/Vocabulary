@@ -1,0 +1,25 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.spec
+
+# Build artifacts
+build/
+*.egg-info/
+
+# IDE / Editor
+.vscode/
+.idea/
+
+# Reasonix internal
+.reasonix/
+
+# Temp files
+tmp/
+
+# OS
+.DS_Store
+Thumbs.db
+GaokaoVocab_data.db
+__pycache__/
