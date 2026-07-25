@@ -1,6 +1,6 @@
 {
   "name": "@uoh56456/gaokao-vocab",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "高考英语词汇背诵助手 - React桌面应用，支持高考/考研/四级/六级词汇，背诵+测验双模式，含音标、释义、例句",
   "type": "module",
   "main": "dist/index.html",
@@ -13,8 +13,17 @@
     "preview": "vite preview"
   },
   "keywords": [
-    "gaokao", "english", "vocabulary", "高考", "英语词汇",
-    "单词背诵", "考研", "四级", "六级", "react", "learning"
+    "gaokao",
+    "english",
+    "vocabulary",
+    "高考",
+    "英语词汇",
+    "单词背诵",
+    "考研",
+    "四级",
+    "六级",
+    "react",
+    "learning"
   ],
   "license": "MIT",
   "author": "uoh56456",
@@ -29,8 +38,12 @@
     "launcher.py",
     "index.html"
   ],
-  "os": ["win32"],
-  "cpu": ["x64"],
+  "os": [
+    "win32"
+  ],
+  "cpu": [
+    "x64"
+  ],
   "dependencies": {
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
