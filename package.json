@@ -1,0 +1,54 @@
+{
+  "name": "@uoh56456/gaokao-vocab",
+  "version": "1.2.0",
+  "description": "高考英语词汇背诵助手 - React桌面应用，支持高考/考研/四级/六级词汇，背诵+测验双模式，含音标、释义、例句",
+  "type": "module",
+  "main": "dist/index.html",
+  "bin": {
+    "gaokao-vocab": "VocabularyApp.exe"
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview"
+  },
+  "keywords": [
+    "gaokao", "english", "vocabulary", "高考", "英语词汇",
+    "单词背诵", "考研", "四级", "六级", "react", "learning"
+  ],
+  "license": "MIT",
+  "author": "uoh56456",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lu87460353/Vocabulary.git"
+  },
+  "homepage": "https://github.com/lu87460353/Vocabulary#readme",
+  "files": [
+    "dist/",
+    "VocabularyApp.exe",
+    "launcher.py",
+    "index.html"
+  ],
+  "os": ["win32"],
+  "cpu": ["x64"],
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "lucide-react": "^0.294.0"
+  },
+  "devDependencies": {
+    "@types/react": "^18.2.43",
+    "@types/react-dom": "^18.2.17",
+    "@typescript-eslint/eslint-plugin": "^6.14.0",
+    "@typescript-eslint/parser": "^6.14.0",
+    "@vitejs/plugin-react": "^4.2.1",
+    "autoprefixer": "^10.4.16",
+    "eslint": "^8.55.0",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "eslint-plugin-react-refresh": "^0.4.5",
+    "postcss": "^8.4.32",
+    "tailwindcss": "^3.4.14",
+    "typescript": "^5.2.2",
+    "vite": "^5.0.8"
+  }
+}
