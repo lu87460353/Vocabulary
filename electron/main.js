@@ -2,6 +2,7 @@ const { app, BrowserWindow, Menu, shell } = require('electron');
 const path = require('path');
 
 const isDev = !app.isPackaged;
+const isMac = process.platform === 'darwin';
 
 function createWindow() {
   const mainWindow = new BrowserWindow({
@@ -35,32 +36,42 @@ const template = [
   {
     label: app.name,
     submenu: [
-      { role: 'about' }, { type: 'separator' },
-      { role: 'services' }, { type: 'separator' },
-      { role: 'hide' }, { role: 'hideOthers' }, { role: 'unhide' },
-      { type: 'separator' }, { role: 'quit' },
+      { role: 'about' },
+      { type: 'separator' },
+      ...(isMac ? [
+        { role: 'services' },
+        { type: 'separator' },
+        { role: 'hide' },
+        { role: 'hideOthers' },
+        { role: 'unhide' },
+        { type: 'separator' },
+      ] : []),
+      { role: 'quit' },
     ],
   },
   {
     label: '编辑',
     submenu: [
       { role: 'undo' }, { role: 'redo' }, { type: 'separator' },
-      { role: 'cut' }, { role: 'copy' }, { role: 'paste' }, { role: 'selectAll' },
+      { role: 'cut' }, { role: 'copy' }, { role: 'paste' },
+      { role: 'selectAll' },
     ],
   },
   {
     label: '查看',
     submenu: [
-      { role: 'reload' }, { role: 'forceReload' }, { role: 'toggleDevTools' },
-      { type: 'separator' },
+      { role: 'reload' }, { role: 'forceReload' },
+      { role: 'toggleDevTools' }, { type: 'separator' },
       { role: 'resetZoom' }, { role: 'zoomIn' }, { role: 'zoomOut' },
       { type: 'separator' }, { role: 'togglefullscreen' },
     ],
   },
-  {
+  ...(isMac ? [{
     label: '窗口',
-    submenu: [{ role: 'minimize' }, { role: 'zoom' }, { role: 'front' }],
-  },
+    submenu: [
+      { role: 'minimize' }, { role: 'zoom' }, { role: 'front' },
+    ],
+  }] : []),
   {
     label: '帮助',
     submenu: [{
@@ -71,7 +82,7 @@ const template = [
           parent: BrowserWindow.getFocusedWindow(),
           title: '关于词汇背诵助手',
         });
-        aboutWindow.loadURL('data:text/html,<h1>词汇背诵助手</h1><p>版本 1.0.0</p><p>支持高考/考研/四六级词汇</p>');
+        aboutWindow.loadURL('data:text/html,<h1>词汇背诵助手</h1><p>跨平台英语词汇学习</p><p>Windows / macOS / Linux</p>');
       },
     }],
   },
@@ -87,5 +98,5 @@ app.whenReady().then(() => {
 });
 
 app.on('window-all-closed', () => {
-  if (process.platform !== 'darwin') app.quit();
+  if (!isMac) app.quit();
 });

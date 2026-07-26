@@ -1,7 +1,7 @@
 {
   "name": "@uoh56456/gaokao-vocab",
-  "version": "3.3.1",
-  "description": "高考英语词汇背诵助手 - 跨平台桌面应用 (Windows + Mac M芯片)",
+  "version": "3.4.0",
+  "description": "高考英语词汇背诵助手 - 跨平台桌面应用 (Windows + macOS + Linux)",
   "type": "module",
   "main": "electron/main.js",
   "bin": {
@@ -14,7 +14,8 @@
     "dist": "npm run build && electron-builder",
     "dist:win": "npm run build && electron-builder --win",
     "dist:mac": "npm run build && electron-builder --mac",
-    "dist:dir": "npm run build && electron-builder --dir"
+    "dist:dir": "npm run build && electron-builder --dir",
+    "dist:linux": "npm run build && electron-builder --linux"
   },
   "keywords": [
     "cross-platform",
@@ -47,7 +48,8 @@
   ],
   "os": [
     "win32",
-    "darwin"
+    "darwin",
+    "linux"
   ],
   "cpu": [
     "x64"
@@ -120,6 +122,27 @@
           "path": "/Applications"
         }
       ]
+    },
+    "linux": {
+      "target": [
+        {
+          "target": "AppImage",
+          "arch": [
+            "x64",
+            "arm64"
+          ]
+        },
+        {
+          "target": "deb",
+          "arch": [
+            "x64",
+            "arm64"
+          ]
+        }
+      ],
+      "category": "Education",
+      "synopsis": "高考/考研/四六级词汇背诵软件",
+      "description": "一款多功能英语词汇背诵软件，支持高考、考研、四级、六级词汇学习。"
     }
   }
 }

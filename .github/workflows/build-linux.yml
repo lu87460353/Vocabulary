@@ -1,0 +1,44 @@
+name: Build Linux App
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18'
+        cache: 'npm'
+
+    - name: Install dependencies
+      run: npm install
+
+    - name: Build
+      run: npm run build
+
+    - name: Package Linux
+      run: npm run dist
+
+    - name: Upload AppImage artifacts
+      uses: actions/upload-artifact@v4
+      with:
+        name: vocabulary-linux-appimage
+        path: dist-electron/*.AppImage
+        if-no-files-found: error
+
+    - name: Upload deb artifacts
+      uses: actions/upload-artifact@v4
+      with:
+        name: vocabulary-linux-deb
+        path: dist-electron/*.deb
+        if-no-files-found: error
