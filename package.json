@@ -1,6 +1,6 @@
 {
   "name": "@uoh56456/gaokao-vocab",
-  "version": "3.4.0",
+  "version": "3.4.1",
   "description": "高考英语词汇背诵助手 - 跨平台桌面应用 (Windows + macOS + Linux)",
   "type": "module",
   "main": "electron/main.js",
@@ -97,16 +97,16 @@
           "x64"
         ]
       },
-      "category": "public.app-category.education",
-      "hardenedRuntime": false,
-      "gatekeeperAssess": false,
-      "identity": null
+      "category": "public.app-category.education"
     },
     "win": {
-      "target": "nsis",
-      "arch": [
-        "x64"
-      ]
+      "target": {
+        "target": "nsis",
+        "arch": [
+          "x64"
+        ]
+      },
+      "icon": null
     },
     "dmg": {
       "sign": false,
