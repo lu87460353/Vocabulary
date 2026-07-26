@@ -19,8 +19,12 @@ jobs:
     - run: npm install
     - run: npm run build
     - run: npm run dist:win
-    - run: dir dist-electron || echo "NO dist-electron"
-    - run: gh release create v1.2.0 --title "v1.2.0" --notes "Windows / macOS / Linux" || true
-      env: { GH_TOKEN: ${{ github.token }} }
-    - run: gh release upload v1.2.0 dist-electron/*.exe --clobber
-      env: { GH_TOKEN: ${{ github.token }} }
+    - run: dir dist-electron || echo "NO DIR"
+    - name: Create release
+      run: gh release create v1.2.0 --title "v1.2.0" --notes "跨平台安装包" || true
+      env:
+        GH_TOKEN: ${{ github.token }}
+    - name: Upload Windows EXE
+      run: gh release upload v1.2.0 dist-electron/*.exe --clobber
+      env:
+        GH_TOKEN: ${{ github.token }}
