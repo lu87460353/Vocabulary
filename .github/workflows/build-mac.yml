@@ -26,8 +26,7 @@ jobs:
         path: dist-electron/*.dmg
     - uses: softprops/action-gh-release@v2
       with:
+        token: ${{ secrets.GITHUB_TOKEN }}
         tag_name: v1.2.0
         files: dist-electron/*.dmg
         prerelease: false
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
