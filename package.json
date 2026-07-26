@@ -1,6 +1,6 @@
 {
   "name": "@uoh56456/gaokao-vocab",
-  "version": "3.4.5",
+  "version": "3.4.6",
   "description": "高考英语词汇背诵助手 - 跨平台桌面应用 (Windows + macOS + Linux)",
   "type": "module",
   "main": "electron/main.js",
@@ -9,13 +9,13 @@
   },
   "scripts": {
     "dev": "concurrently \"vite\" \"wait-on http://localhost:5173 && electron .\"",
-    "build": "tsc && vite build",
+    "build": "vite build",
     "preview": "vite preview",
-    "dist": "npm run build && electron-builder",
-    "dist:win": "npm run build && electron-builder --win",
-    "dist:mac": "npm run build && electron-builder --mac",
-    "dist:dir": "npm run build && electron-builder --dir",
-    "dist:linux": "npm run build && electron-builder --linux"
+    "dist": "vite build && electron-builder",
+    "dist:win": "vite build && electron-builder --win",
+    "dist:mac": "vite build && electron-builder --mac",
+    "dist:dir": "vite build && electron-builder --dir",
+    "dist:linux": "vite build && electron-builder --linux"
   },
   "keywords": [
     "cross-platform",
