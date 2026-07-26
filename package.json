@@ -1,5 +1,5 @@
 {
-  "name": "gaokao-vocab-app",
+  "name": "@uoh56456/gaokao-vocab",
   "version": "3.4.5",
   "description": "高考英语词汇背诵助手 - 跨平台桌面应用 (Windows + macOS + Linux)",
   "type": "module",
