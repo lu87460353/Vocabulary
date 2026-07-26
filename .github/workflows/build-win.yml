@@ -19,7 +19,9 @@ jobs:
     - run: npm install
     - run: npm run build
     - run: npm run dist:win
-    - name: Upload EXE
-      run: gh release upload v1.2.0 dist-electron/*.exe --clobber
+    - run: gh release create v1.2.0 --title "v1.2.0 - 跨平台词汇背诵助手" --notes "Windows / macOS / Linux 安装包" || true
+      env:
+        GH_TOKEN: ${{ github.token }}
+    - run: gh release upload v1.2.0 dist-electron/*.exe --clobber
       env:
         GH_TOKEN: ${{ github.token }}
