@@ -1,29 +1,36 @@
 {
   "name": "@uoh56456/gaokao-vocab",
-  "version": "3.2.6",
-  "description": "高考英语词汇背诵助手 - React桌面应用，支持高考/考研/四级/六级词汇，背诵+测验双模式，含音标、释义、例句",
+  "version": "3.3.0",
+  "description": "高考英语词汇背诵助手 - 跨平台桌面应用 (Windows + Mac M芯片)",
   "type": "module",
-  "main": "dist/index.html",
+  "main": "electron/main.js",
   "bin": {
     "gaokao-vocab": "VocabularyApp.exe"
   },
   "scripts": {
-    "dev": "vite",
+    "dev": "concurrently \"vite\" \"wait-on http://localhost:5173 && electron .\"",
     "build": "tsc && vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "dist": "npm run build && electron-builder",
+    "dist:win": "npm run build && electron-builder --win",
+    "dist:mac": "npm run build && electron-builder --mac",
+    "dist:dir": "npm run build && electron-builder --dir"
   },
   "keywords": [
-    "gaokao",
-    "english",
+    "cross-platform",
+    "electron",
     "vocabulary",
-    "高考",
-    "英语词汇",
     "单词背诵",
+    "高考",
     "考研",
-    "四级",
-    "六级",
     "react",
-    "learning"
+    "english",
+    "四级",
+    "gaokao",
+    "learning",
+    "六级",
+    "mac",
+    "英语词汇"
   ],
   "license": "MIT",
   "author": "uoh56456",
@@ -39,7 +46,8 @@
     "index.html"
   ],
   "os": [
-    "win32"
+    "win32",
+    "darwin"
   ],
   "cpu": [
     "x64"
@@ -62,6 +70,56 @@
     "postcss": "^8.4.32",
     "tailwindcss": "^3.4.14",
     "typescript": "^5.2.2",
-    "vite": "^5.0.8"
+    "vite": "^5.0.8",
+    "@types/node": "^20.10.0",
+    "concurrently": "^8.2.2",
+    "electron": "^28.0.0",
+    "electron-builder": "^24.9.1",
+    "wait-on": "^7.0.1"
+  },
+  "build": {
+    "appId": "com.uoh56456.gaokao-vocab",
+    "productName": "词汇背诵助手",
+    "directories": {
+      "output": "dist-electron"
+    },
+    "files": [
+      "dist/**/*",
+      "electron/**/*"
+    ],
+    "mac": {
+      "target": {
+        "target": "dmg",
+        "arch": [
+          "arm64",
+          "x64"
+        ]
+      },
+      "category": "public.app-category.education",
+      "hardenedRuntime": false,
+      "gatekeeperAssess": false,
+      "identity": null
+    },
+    "win": {
+      "target": "nsis",
+      "arch": [
+        "x64"
+      ]
+    },
+    "dmg": {
+      "sign": false,
+      "contents": [
+        {
+          "x": 130,
+          "y": 220
+        },
+        {
+          "x": 410,
+          "y": 220,
+          "type": "link",
+          "path": "/Applications"
+        }
+      ]
+    }
   }
 }
