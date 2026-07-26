@@ -1,6 +1,6 @@
 {
   "name": "@uoh56456/gaokao-vocab",
-  "version": "3.3.0",
+  "version": "3.3.1",
   "description": "高考英语词汇背诵助手 - 跨平台桌面应用 (Windows + Mac M芯片)",
   "type": "module",
   "main": "electron/main.js",
