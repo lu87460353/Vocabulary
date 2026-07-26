@@ -2,7 +2,7 @@
 
 [![npm version](https://img.shields.io/npm/v/@uoh56456/gaokao-vocab)](https://www.npmjs.com/package/@uoh56456/gaokao-vocab)
 [![license](https://img.shields.io/npm/l/@uoh56456/gaokao-vocab)](LICENSE)
-[![platform](https://img.shields.io/badge/platform-Windows%20%7C%20macOS-blue)](https://github.com/lu87460353/Vocabulary)
+[![platform](https://img.shields.io/badge/platform-Windows%20%7C%20macOS%20%7C%20Linux-blue)](https://github.com/lu87460353/Vocabulary)
 
 基于 **React 18 + TypeScript + Vite + Electron** 构建的跨平台桌面应用。专为英语学习者打造，融合四大权威词汇库（高考 / 考研 / 四级 / 六级），每个单词配备英式音标、词性标注、详细中文释义和双语例句，支持卡片翻转背诵与交互测验双模式。
 
@@ -43,6 +43,7 @@
 | 分类进度 | 各词汇库独立进度条 + 百分比 |
 | Windows 支持 | EXE 单文件 (pywebview / Electron) |
 | macOS 支持 | DMG 安装包 (Electron + electron-builder) |
+| Linux 支持 | AppImage + deb (Electron + electron-builder) |
 | Web 版 | 浏览器直接使用，无需安装 |
 
 ---
@@ -77,6 +78,13 @@ npx @uoh56456/gaokao-vocab
 6. 拖入 `/Applications` 文件夹
 
 首次打开提示"无法验证开发者"：**系统设置 → 隐私与安全性 → 安全性 → 仍要打开**。
+
+### Linux
+
+1. [Actions - Build Linux App](https://github.com/lu87460353/Vocabulary/actions/workflows/build-linux.yml)
+2. 最新绿勾 - Artifacts - 下载 `vocabulary-linux-appimage` 或 `vocabulary-linux-deb`
+3. **AppImage**: `chmod +x *.AppImage && ./*.AppImage`
+4. **deb**: `sudo dpkg -i *.deb`
 
 ### Web 版
 
@@ -241,6 +249,7 @@ npm run dev
 | `npm run preview` | 预览生产构建 |
 | `npm run dist:win` | 打包 Windows .exe |
 | `npm run dist:mac` | 打包 macOS .dmg |
+| `npm run dist:linux` | 打包 Linux AppImage/deb |
 
 ### 项目结构
 
